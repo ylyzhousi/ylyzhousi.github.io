@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | ylyzhousi的博客</title>
+  <title>ylyzhousi的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
+  <meta name="description" content="CPCC2020答辩流程1 各位老师同学大家好，我是来自 东北大学 流程工业综合自动化国家重点实验室的 于力一 我今天汇报的题目是《基于规则推理的氧化铝蒸发过程智能设定控制》 2 我主要从如下5个部分进行汇报首先针对氧化铝蒸发过程的控制问题进行描述提出了设定算法并设计开发了该算法软件，进行了工业应用最后做一个简单的结论与展望 3 首先是研究背景氧化铝是稳定的氧化物，可用作吸附剂、催化剂、耐火材料等">
+<meta property="og:type" content="article">
 <meta property="og:title" content="ylyzhousi的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/index.html">
 <meta property="og:site_name" content="ylyzhousi的博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="CPCC2020答辩流程1 各位老师同学大家好，我是来自 东北大学 流程工业综合自动化国家重点实验室的 于力一 我今天汇报的题目是《基于规则推理的氧化铝蒸发过程智能设定控制》 2 我主要从如下5个部分进行汇报首先针对氧化铝蒸发过程的控制问题进行描述提出了设定算法并设计开发了该算法软件，进行了工业应用最后做一个简单的结论与展望 3 首先是研究背景氧化铝是稳定的氧化物，可用作吸附剂、催化剂、耐火材料等">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/降膜蒸发器.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/纯滞后.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/smith.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/Smith1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/mpc.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/%E4%B8%B2%E7%BA%A7.jpg">
+<meta property="article:published_time" content="2020-08-09T10:18:13.539Z">
+<meta property="article:modified_time" content="2020-08-06T00:56:41.990Z">
 <meta property="article:author" content="jone">
 <meta property="article:tag" content="学习记录">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/images/降膜蒸发器.png">
   
     <link rel="alternative" href="/atom.xml" title="ylyzhousi的博客" type="application/atom+xml">
   
@@ -146,64 +155,313 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-问题准备" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CPCC2020答辩"><a href="#CPCC2020答辩" class="headerlink" title="CPCC2020答辩"></a>CPCC2020答辩</h1><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><strong>1</strong> 各位老师同学大家好，我是来自 东北大学 流程工业综合自动化国家重点实验室的 于力一 我今天汇报的题目是《基于规则推理的氧化铝蒸发过程智能设定控制》</p>
+<p><strong>2</strong> 我主要从如下5个部分进行汇报<br>首先针对氧化铝蒸发过程的控制问题进行描述<br>提出了设定算法并设计开发了该算法软件，进行了工业应用<br>最后做一个简单的结论与展望</p>
+<p><strong>3</strong> 首先是研究背景<br>氧化铝是稳定的氧化物，可用作吸附剂、催化剂、耐火材料等，同时是电解铝的原料<br>氧化铝的生产主要有烧结法和拜耳法两种，由于拜耳法在能耗、产品质量上的突出优点，目前近90%氧化铝采用拜耳法生产方式<br>拜尔法的生产流程如右图所示，铝土矿经过溶出、沉降分离、晶种分解、过滤、焙烧等工序得到氧化铝粉，是一个复杂的工业过程<br>过滤后的低浓度碱液经过蒸发过程得到高浓度的合格循环碱液再次进入到氧化铝生产过程，<br>蒸发在拜耳法过程中具有重要作用，涉及到安全、质量、产能、效率、汽耗五个指标，<br>其中蒸发出料浓度关系到蒸发过程的质量、产能、和效率<br>因此实现蒸发出料浓度的控制对于提高经济效益具有重要意义  </p>
+<p><strong>4</strong>蒸发过程如图所示，为了提高蒸气利用效率，降低蒸气消耗，国内氧化铝蒸发工艺多为两段蒸发流程<br>低浓度碱液经过比例阀一分为二，<br>其中 一股流量通过5效进入一段过程，经过五级降膜蒸发和五级自蒸发形成一段出料，<br>另一股流量通过原闪进入二段过程，经过两级降膜蒸发形成二段出料，<br>调节阀门开度来调节进料流量，从而调节出料浓度<br>研究表明，两段流程比一段流程汽耗低13%以上<br>蒸发过程的控制目标为将一二段出料浓度控制在合格范围内！<br>该过程是一个长流程<br>一段蒸发时长约20min<br>二段蒸发时长约15min<br>该过程同时受到工况变化的干扰，包括进料的温度与浓度、加热蒸气的压力等！</p>
+<p><strong>5</strong> 对蒸发过程动态特性进行分析<br>建立以进料流量为输入以出料密度为输出的强制蒸发过程动态模型，如下式所示，<br>由式中可以看出，出料密度受到蒸发器液位、加热蒸气压力等的影响，并且出料浓度与蒸发器液位存在强非线性、与进料浓度存在大滞后，模型参数受到过程变量影响，发生未知时变，并且模型受到未知干扰影响，<br>经过以上分析可得，蒸发过程存在如下控制难点。。。</p>
+<p><strong>6</strong> 针对蒸发过程的复杂特点，研究学者主要提出了以下三类控制方法， 但是由于蒸发过程受到未知干扰，模型参数变化未知，难以建立精确的数学模型，因此，上述基于数学模型的控制方法难以应用于实际的蒸发过程，工业现场仍采用人工控制</p>
+<p><strong>7</strong> 人工控制结构如图所示，操作员通过观测出料浓度的变化趋势调整流量回路的设定值，由于人工操作的局限性，不能考虑到相关变量的影响，如进料温度、浓度等，当工况发生变化时，不能及时做出准确的调整，控制效果较差</p>
+<p><strong>8</strong> 本文针对以上控制问题，结合现场操作经验，采用“事件触发+时间触发”的控制思想提出了如下图所示控制结构。由智能设定和基础回路组成，其中这顶设定包括基于规则推理的反馈控制器和前馈补偿器</p>
+<p><strong>9</strong>  基于规则推理的反馈控制器在反馈控制周期根据出料浓度及其变化率给出流量设定值，前馈补偿器根据原液温度、浓度及蒸气压力及其变化率给出设定值的补偿值<br>由于控制周期与补偿周期不同，需要在线调整设定周期<br>为了降低异常值和测量噪声对过程稳定性的影响，实际应用中在时序数据上加了一个时间窗口，在窗口内进行一阶惯性滤波<br>通过总结优秀操作员的操作经验，分别针对两段反馈控制和前馈补偿建立规则集</p>
+<p><strong>10</strong> 以一段反馈规则集为例，除了经验总结<br>我们利用生产过程温度、压力、流量、密度等历史数据，采用决策树回归方法进行了规则挖掘， 对规则集作更新补充<br>并且将上述算法进行了软件实现    </p>
+<p><strong>11</strong> 应用软件主要有三层结构<br>其中数据库层用于存储运行数据、仪表数据及化验数据<br>虚拟云层用于部署后台应用程序及智能设定算法<br>操作计算机上用于过程监控和设定操作</p>
+<p><strong>12</strong> 接下来是硬件平台，包括mes系统，DCS控制系统，和工业云平台，<br>其中，DCS实现蒸发过程回路控制、逻辑控制和过程监控<br>MES用于读取化验数据和指标统计<br>工业云用于数据采集，实现智能算法</p>
+<p><strong>13</strong>软件平台包括前端和后台两部分<br>前端部署在操作员站上，采用DCS自带组态软件foxdraw进行开发<br>后台算法在工业云上采用Python语言开发</p>
+<p><strong>14</strong> 算法开发流程如左图所示，相关功能均为模块化开发，<br>主要的功能模块包括。。。</p>
+<p><strong>15</strong> 由于调度关心的整体过程的运行情况，因此调度计算机的操作界面主要功能为过程和指标的监控，该界面投用在MES系统<br>操作关心的是过程的控制效果，因此操作计算机的界面主要功能包括过程监控、智能设定、参数录入，操作员权限切换等，该界面投用在操作员站</p>
+<p><strong>16</strong> 本文提出的智能设定算法及软件成功投运在山西某氧化铝厂<br>蒸发现场设备管道，<br>蒸发过程检测仪表，<br>中心机房，在工程师站进行算法的开发和软件的调试，为了实时评测我们软件的应用效果，我们进行72小时跟班调试<br>集控中心，图中正在进行跟班操作，总结现场操作经验<br>前端界面在操作计算机正式投用</p>
+<p><strong>17</strong>工业应用分为软件功能考核和算法效果评价<br>软件功能考核主要包括</p>
+<p>系统通讯的测试</p>
+<p>过程监控，指标监控</p>
+<p>智能设定操作的调试</p>
+<p>系统导航</p>
+<p>报警功能测试</p>
+<p>变量历史趋势查看</p>
+<p>以及数据的采集与存储</p>
+<p><strong>18</strong>算法参数选择如表所示，</p>
+<p><strong>19</strong> 工业实验分别进行了为期四天的人工操作和智能设定，进行效果对比<br>下图为一段过程的蒸发出料控制效果对比。左侧为人工控制时的出料浓度及流量设定，右侧为智能设定，上侧为蒸发的出料浓度，下侧为对应进料流量的设定与跟踪<br>可以看出，智能设定控制出料浓度在波动幅度和波动频率都优于人工操作，区间合格率提高了36.46%，均方差降低了87.8%</p>
+<p><strong>20</strong>同样可以看到二段过程，智能控制的效果也明显优于人工操作，其中在实验中后段二段出料浓度出现了一个突然的波动，原因是由于对应时间的进料原液温度有一个骤降！<br>当出料浓度降低后我们的软件能够迅速调整流量设定，直到出料浓度恢复到合格区间，区间合格率比人工提高了16.69%</p>
+<p><strong>21</strong>现场的技术负责人为我们的设定算法和上线软件给出的功能考核认定，。。。。。。<br>其中五闪出料对应本文的一段过程，六效出料对应本文的二段过程</p>
+<p><strong>22</strong>接下来对本阶段工作做一个简单的总结<br>首先分析了蒸发过程的动态特性，给出了控制问题描述<br>接下来提出了设定算法并设计开发了相应的算法软件<br>工业应用表明，提出的设定算法和软件可以将蒸发出料浓度控制在合格区间内，提高了NK合格率，该软件在现场已持续运行近半年</p>
+<p><strong>23</strong> 知识图谱在知识提取，知识存储和知识推理方面有很多成功的应用！<br>为进一步提高控制效果，尝试将知识图谱应用在氧化铝的控制<br>如图为在知识图谱的现阶段工作，构建了一个基于语义搜索的知识问答系统，通过搜索相应的知识标签或者当前生产条件可以检索到知识库中对应的历史知识，用于辅助决策，并对返回结果进行可视化！！<br>希望各位专家可以针对我们的工作给出点评指导！！！<br><strong>24</strong> 谢谢大家</p>
+<h3 id="工艺"><a href="#工艺" class="headerlink" title="工艺"></a>工艺</h3><ul>
+<li><strong>两段蒸发</strong></li>
+</ul>
+<p>国内氧化铝行业母液蒸发降膜蒸发工艺及装备最先由平果铝引进,经过多年的消化吸收和改进,目前已经形成了成熟的六效降膜蒸发工艺。虽然同是六效降膜蒸发,蒸发母液的流程不同,蒸发系统的汽耗也不尽不同。传统的六效蒸发工艺的母液出料流程为一段出料流程。一段出料流程为进Ⅳ、Ⅵ效原液各50% ,进Ⅵ效原液经Ⅴ效出料再进Ⅳ效,与进Ⅳ效原液混合后经Ⅳ - Ⅲ - Ⅱ - Ⅰ效后,再经三或四级自蒸发出料,出料即为蒸发母液。两段出料流程为原液各50% 进Ⅳ、Ⅵ效,进Ⅵ效原液经Ⅴ效出料,进Ⅳ效原液经Ⅳ - Ⅲ - Ⅱ - Ⅰ效后,再经三或四级自蒸发出料,从Ⅴ效出来的溶液和自蒸发出来的溶液混合后成为蒸发母液。以上两种流程除溶液流程不同外,蒸汽流程都相同。虽然只是改变了从Ⅴ效出来的蒸发母液的流程,但是却对蒸发汽耗的影响较大,表1 为一段出料和两段出料的计算结果。根据计算结果可知,两段出料流程比一段出料流程汽耗低13% 以上。</p>
+<p>经过计算,Ⅳ效的进料比例控制在55% 以下为宜</p>
+<p>原闪也V效为负压</p>
+<ul>
+<li>降膜蒸发器</li>
+</ul>
+<p>降膜蒸发是将料液自降膜蒸发器加热室上管箱加入，经液体分布及成膜装置，均匀分配到各换热管内，在重力和真空诱导及气流作用下，成均匀膜状自上而下流动。流动过程中，被壳程加热介质加热汽化，产生的蒸汽与液相共同进入蒸发器的分离室，汽液经充分分离，蒸汽进入冷凝器冷凝（单效操作）或进入下一效蒸发器作为加热介质，从而实现多效操作，液相则由分离室排出。</p>
+<img src="images/降膜蒸发器.png" style="zoom: 80%;" />
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="时滞控制系统"><a href="#时滞控制系统" class="headerlink" title="时滞控制系统"></a>时滞控制系统</h3><p>即针对<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%B6%E9%97%B4%E6%BB%9E%E5%90%8E/19174358">时间滞后</a>问题设计的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F/1051898">控制系统</a>或将时间滞后问题考虑在内的控制系统。</p>
+<p>在控制理论中，滞后指<strong>在时间上被控变量的变化落后于扰动变化</strong>，是一种十分常见的现象。</p>
+<ul>
+<li><strong>容量滞后</strong></li>
+</ul>
+<p>容量滞后是指，物料或能量传输到被测过程（对象）时由于遇到被控过程的<strong>阻力</strong>而导致对于扰动的响应在时间上存在延迟。</p>
+<p>一般容量滞后是由物理惯性或软硬件设备响应速度有限所引起的。</p>
+<ul>
+<li><strong>纯滞后</strong></li>
+</ul>
+<p>纯滞后是指，在物料、能量或信号传输过程中由于<strong>传输速度有限</strong>而产生的延迟。</p>
+<p>一般纯滞后就是指由传输速度限制导致的滞后。</p>
+<img src="images/纯滞后.png" style="zoom:67%;" />
+
+<ul>
+<li><strong>大滞后</strong></li>
+</ul>
+<p>一般将纯滞后时间与时间常数之比大于0.3的过程称为大滞后过程。</p>
+<p>由于滞后的存在，往往会导致扰动无法及早察觉，控制作用无法及时奏效，造成控制效果不好甚至无法控制。</p>
+<blockquote>
+<p>采样控制</p>
+</blockquote>
+<p>通常把系统中的离散信号是<strong>脉冲序列</strong>形成的离散系统,称为采样控制系统或脉冲控制系统;而把<strong>数字序列</strong>形成的离散系统,称为数字控制系统或计算机控制系统.</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%87%87%E6%A0%B7%E6%8E%A7%E5%88%B6">采样控制</a>是一种定周期的断续控制方式，即控制器以一定时间间隔采样一次被控参数，与设定值比较后经控制规则产生控制信号，只要该时间间隔<strong>大于</strong>纯滞后时间，就可以逐渐修正控制系统的不稳定状态。</p>
+<p><strong>该方法牺牲了控制速度，采取等待的方式避免控制器因为纯滞后产生过反应、过操作。</strong>这是一种比较简单粗糙的解决方案，对于精度和速度要求不高的系统较为适用。</p>
+<blockquote>
+<p>史密斯预估补偿控制</p>
+</blockquote>
+<p>为了改善大滞后系统的品质，1957年O.J.M.Smith提出了一种以过程模型为基础的<strong>大滞后预估补偿控制</strong>方法，故称为Smith预估补偿控制。</p>
+<p>该方法按照对象特性，设计一种模型加入到反馈控制系统，估计出对象在扰动作用下的动态响应，提早进行补偿，使控制器提前动作，从而降低<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%B6%85%E8%B0%83%E9%87%8F">超调量</a>，加速调节过程。</p>
+<p>史密斯预估控制是一种<strong>纯滞后补偿控制</strong>，其通过引入一个和被控对象并联的补偿器对纯滞后进行削弱和消除。<strong>将纯滞后环节移到闭环控制回路之外</strong>，从而有效地消除了纯滞后对控制系统的影响,史密斯预估器的引入如下图所示</p>
+<img src="images/smith.png" style="zoom:67%;" />
+
+
+
+<p>从现实的操作出发，实际上的史密斯预估器通常不是并联在被控对象上的，而是反向并联在控制器上的，如下图所示。</p>
+<img src="images/Smith1.png" style="zoom:67%;" />
+
+<p><strong>显然，Smith控制方法的前提是必须确切地知道被控对象的数学模型，在此基础上才能建立精确的预估模型。</strong></p>
+<h3 id="模型预测控制"><a href="#模型预测控制" class="headerlink" title="模型预测控制"></a>模型预测控制</h3><p><strong>先预测再控制</strong></p>
+<p>当前控制动作是在每一个采样瞬间通过求解一个有限时域开环最优控制问题而获得。过程的当前状态作为最优控制问题的初始状态，解得的最优控制序列只实施第一个控制作用。</p>
+<p>需要一个描述系统动态行为的模型作为预测模型。如果内部模型的准确性很差．则仍会对系统的稳定性造成严重的影响。</p>
+<ol>
+<li>对模型的精度要求不高，建模方便，过程描述可由简单实验获得；</li>
+<li>对<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9D%9E%E7%BA%BF%E6%80%A7">非线性</a>，时变的不确定性系统的模型预测控制的问题还没有很好的解决。</li>
+</ol>
+<img src="images/mpc.jpg" style="zoom:67%;" />
+
+
+
+<h3 id="串级控制"><a href="#串级控制" class="headerlink" title="串级控制"></a>串级控制</h3><p><strong>串级控制系统是两只调节器串联起来工作，其中一个调节器的输出作为另一个调节器的给定值的系统。</strong></p>
+<p>前一个调节器称为<strong>主调节器</strong>，它所检测和控制的变量称主变量（主被控参数），即<u>工艺控制指标</u>；后一个调节器称为<strong>副调节器</strong>，它所检测和控制的变量称副变量（副被控参数），是为了稳定主变量而引入的<u>辅助变量</u>。</p>
+<p>该系统主要应用于：对象的滞后和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%B6%E9%97%B4%E5%B8%B8%E6%95%B0/3417132">时间常数</a>很大、干扰作用强而频繁、负荷变化大、对控制质量要求较高的场合。</p>
+<ol>
+<li>由两个串接工作的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8E%A7%E5%88%B6%E5%99%A8/2206126">控制器</a>构成的双<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F/8783508">闭环控制系统</a></li>
+<li>系统的目的在于通过设置副变量来提高对主变量的控制质量</li>
+<li>由于副回路的存在,对进入副回路的干扰有超前控制的作用,因而减少了干扰对主变量的影响</li>
+<li>系统对负荷改变时有一定的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%87%AA%E9%80%82%E5%BA%94/4862182">自适应</a>能力</li>
+<li>应用于<strong>容量滞后较大</strong>的过程</li>
+<li>应用于<strong>纯时延较大</strong>的过程</li>
+<li>应用于<strong>非线性</strong>过程</li>
+</ol>
+<p><img src="images/%E4%B8%B2%E7%BA%A7.jpg"></p>
+<blockquote>
+<p>氧化铝蒸发过程可以作为一个串级系统理解，但实际也是一个运行控制问题，因为关系到了生产的经济指标</p>
+<p>实际生产还有一个总的指标就是一二段出料混合后的浓度值，同时由于一二段进料的总流量是一定的，因此一二段存在严重的耦合！</p>
+<p>如果作为串级系统可以做到DCS系统中，但是控制过程中需要用到的化验值需要MES系统中获得，因此并没有做到DCS中</p>
+</blockquote>
+<h3 id="运行优化控制与设定控制"><a href="#运行优化控制与设定控制" class="headerlink" title="运行优化控制与设定控制"></a>运行优化控制与设定控制</h3><ul>
+<li>运行控制</li>
+</ul>
+<ul>
+<li>运行优化控制</li>
+</ul>
+<ul>
+<li>设定控制</li>
+</ul>
+<h3 id="非线性控制"><a href="#非线性控制" class="headerlink" title="非线性控制"></a>非线性控制</h3><h3 id="非线性模型预测控制"><a href="#非线性模型预测控制" class="headerlink" title="非线性模型预测控制"></a>非线性模型预测控制</h3><h3 id="自适应解耦控制"><a href="#自适应解耦控制" class="headerlink" title="自适应解耦控制"></a>自适应解耦控制</h3><p>不会回答的问题就往知识图谱上讲，知识图谱可以增强鲁棒性（工业大数据）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/ali.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/we.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/" class="archive-article-date">
-  	<time datetime="2020-08-09T10:18:13.539Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/09/%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/06/first/" class="archive-article-date">
-  	<time datetime="2020-08-06T14:23:04.492Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/06/first/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CPCC2020%E7%AD%94%E8%BE%A9"><span class="toc-number">1.</span> <span class="toc-text">CPCC2020答辩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E8%89%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">工艺</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E6%BB%9E%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">时滞控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.3.</span> <span class="toc-text">模型预测控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E7%BA%A7%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.4.</span> <span class="toc-text">串级控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96%E6%8E%A7%E5%88%B6%E4%B8%8E%E8%AE%BE%E5%AE%9A%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.5.</span> <span class="toc-text">运行优化控制与设定控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.6.</span> <span class="toc-text">非线性控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.7.</span> <span class="toc-text">非线性模型预测控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E8%A7%A3%E8%80%A6%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.8.</span> <span class="toc-text">自适应解耦控制</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -231,8 +489,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
